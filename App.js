@@ -1,5 +1,8 @@
-import { NavigationContainer } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+import HomeScreen from "./src/screens/HomeScreen";
 import {
   Image,
   TouchableOpacity,
@@ -9,47 +12,20 @@ import {
   Dimensions,
   SafeAreaView,
 } from "react-native";
+import AutoWebView from "./src/screens/AutoWebView";
 export default function App() {
-  const AutoMotoLogo = require("./src/image/ezgif-3-011b04688a.jpg");
-  const AutoBgLogo = require("./src/image/ezgif-3-011b04688a.jpg");
-  const carsLogo = require("./src/image/ezgif-3-2091f6109b.png");
-  const MobileLogo = require("./src/image/mobile.png");
-
+  const Stack = createNativeStackNavigator();
   return (
     // <NavigationContainer>
-    <SafeAreaView style={styles.container}>
-   
-      <Image
-        source={require("./src/image/logo_transparent.png")}
-        style={styles.baner}
-      ></Image>
-      <TouchableOpacity
-        style={[styles.touchables, { backgroundColor: "#50C346" }]}
-      >
-        <Image source={AutoMotoLogo} style={{ width: 200, height: 60 }}></Image>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={[styles.touchables, { backgroundColor: "#FF6600" }]}
-      >
-        <Image
-          source={carsLogo}
-          style={{ width: 200, height: 60 }}
-          resizeMode={"contain"}
-        ></Image>
-      </TouchableOpacity>
-      <TouchableOpacity style={[styles.autobg, { backgroundColor: "#38618C" }]}>
-        <Text>Аuto.bg</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={[styles.touchables, { backgroundColor: "#0099FF" }]}
-      >
-        <Image
-          source={MobileLogo}
-          style={{ width: 200, height: 60 }}
-          resizeMode={"contain"}
-        ></Image>
-      </TouchableOpacity>
-    </SafeAreaView>
+    <NavigationContainer >
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="automoto" component={AutoWebView}  />
+        <Stack.Screen name="cars" component={AutoWebView} />
+        <Stack.Screen name="auto" component={AutoWebView} />
+        <Stack.Screen name="mobile" component={AutoWebView} />
+      </Stack.Navigator>
+    </NavigationContainer>
     // {/* </NavigationContainer> */}
   );
 }
