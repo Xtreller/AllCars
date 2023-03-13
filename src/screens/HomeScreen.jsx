@@ -22,39 +22,41 @@ function HomeScreen({ navigation }) {
                 source={require("../image/logo_transparent.png")}
                 style={styles.baner}
             ></Image>
-            <TouchableOpacity
-                onPress={() => navigation.navigate('automoto')}
-                style={[styles.touchables, { backgroundColor: "#50C346" }]}
-            >
-                <Image source={AutoMotoLogo} style={{ width: 200, height: 60 }}></Image>
-            </TouchableOpacity>
-            <TouchableOpacity
-                onPress={() => navigation.navigate('cars')}
+            <View >
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('automoto')}
+                    style={[styles.touchables, { backgroundColor: "#50C346" }]}
+                >
+                    <Image source={AutoMotoLogo} style={{ width: 200, height: 60 }}></Image>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('cars')}
 
-                style={[styles.touchables, { backgroundColor: "#FF6600" }]}
-            >
-                <Image
-                    source={carsLogo}
-                    style={{ width: 200, height: 60 }}
-                    resizeMode={"contain"}
-                ></Image>
-            </TouchableOpacity>
-            <TouchableOpacity style={[styles.autobg, { backgroundColor: "#38618C" }]}
-                onPress={() => navigation.navigate('auto')}
-            >
-                <Text>Аuto.bg</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-                style={[styles.touchables, { backgroundColor: "#0099FF" }]}
-                onPress={() => navigation.navigate('mobile')}
+                    style={[styles.touchables, { backgroundColor: "#FF6600" }]}
+                >
+                    <Image
+                        source={carsLogo}
+                        style={{ width: 200, height: 60 }}
+                        resizeMode={"contain"}
+                    ></Image>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.autobg, { backgroundColor: "#38618C" }]}
+                    onPress={() => navigation.navigate('auto')}
+                >
+                    <Text>Аuto.bg</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={[styles.touchables, { backgroundColor: "#0099FF" }]}
+                    onPress={() => navigation.navigate('mobile')}
 
-            >
-                <Image
-                    source={MobileLogo}
-                    style={{ width: 200, height: 60 }}
-                    resizeMode={"contain"}
-                ></Image>
-            </TouchableOpacity>
+                >
+                    <Image
+                        source={MobileLogo}
+                        style={{ width: 200, height: 60 }}
+                        resizeMode={"contain"}
+                    ></Image>
+                </TouchableOpacity>
+            </View>
         </SafeAreaView>
     );
 }
@@ -68,11 +70,11 @@ const styles = StyleSheet.create({
     },
     baner: {
         width: "75%",
+        position:'relative',
         height: "20%",
-        position: "absolute",
-        top: 80,
         minWidth: "55%",
         minHeight: 60,
+        marginBottom:20,
     },
     touchables: {
         flexDirection: "row",
